@@ -17,18 +17,19 @@ class MyFrame extends JFrame {
 		setTitle("출석관리프로그램(서버)");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1000,1000);
+		
 		JPanel p = new JPanel();
 		p.setLayout(null);
 		
 		//이미지삽입
 		try{
-			img = ImageIO.read(new File("Title.png"));
+			img = ImageIO.read(new File("img/Title.png"));
 		}catch(IOException e){
 			System.out.println(e.getMessage());
 			System.exit(0);
 		}
 		add(new MyPanel());
+		setSize(1000,1000);
 		pack();
 		setVisible(true);
 		
