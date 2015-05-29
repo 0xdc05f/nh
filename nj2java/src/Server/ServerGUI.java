@@ -1,4 +1,4 @@
-package nj2java;
+package Server;
 
 import java.io.*;
 import java.awt.*;
