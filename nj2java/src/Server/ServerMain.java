@@ -15,7 +15,6 @@ public class ServerMain extends JFrame{
 	private JButton button_1;
 	private JTextField txtAttendanceAdminSystem;
 	private JTextField textField_2;
-	private JTextField textField_3;
 	public ServerMain() {
 		getContentPane().setEnabled(false);
 		SpringLayout springLayout = new SpringLayout();
@@ -99,14 +98,6 @@ public class ServerMain extends JFrame{
 		textField_2.setText("2015 / 04 / 19");
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
-		
-		textField_3 = new JTextField();
-		textField_3.setText("*");
-		springLayout.putConstraint(SpringLayout.WEST, textField_3, 26, SpringLayout.EAST, textField_2);
-		springLayout.putConstraint(SpringLayout.SOUTH, textField_3, -23, SpringLayout.NORTH, txtEnd);
-		springLayout.putConstraint(SpringLayout.EAST, textField_3, 51, SpringLayout.EAST, textField_2);
-		getContentPane().add(textField_3);
-		textField_3.setColumns(10);
 	}
 
 	public static void main(String[] args) {
