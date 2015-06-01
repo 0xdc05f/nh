@@ -3,10 +3,14 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ServerMain extends JFrame{
+
+
+
 	private JButton button_1;
 	private JTextField textField_2;
 	private JLabel lblAttendanceAdminSystem;
@@ -15,6 +19,7 @@ public class ServerMain extends JFrame{
 	private JLabel lblNewLabel;
 	private JLabel label;
 	private JLabel lblEnd;
+	private Canvas canvas;
 	public ServerMain() {
 		getContentPane().setEnabled(false);
 		SpringLayout springLayout = new SpringLayout();
@@ -50,10 +55,11 @@ public class ServerMain extends JFrame{
 		getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
+		//Á¦¸ñ
 		lblAttendanceAdminSystem = new JLabel("Attendance Admin System");
 		springLayout.putConstraint(SpringLayout.NORTH, lblAttendanceAdminSystem, 10, SpringLayout.NORTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.EAST, lblAttendanceAdminSystem, -118, SpringLayout.EAST, getContentPane());
-		lblAttendanceAdminSystem.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		lblAttendanceAdminSystem.setFont(new Font("±¼¸²", Font.PLAIN, 22));
 		getContentPane().add(lblAttendanceAdminSystem);
 		
 		lblSelectDate = new JLabel("Select Date");
@@ -85,6 +91,11 @@ public class ServerMain extends JFrame{
 		springLayout.putConstraint(SpringLayout.NORTH, lblEnd, 4, SpringLayout.NORTH, btnStart);
 		springLayout.putConstraint(SpringLayout.EAST, lblEnd, -42, SpringLayout.WEST, btnEnd);
 		getContentPane().add(lblEnd);
+		
+		canvas = new Canvas();
+		springLayout.putConstraint(SpringLayout.SOUTH, canvas, -10, SpringLayout.SOUTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, canvas, 0, SpringLayout.EAST, btnEnd);
+		getContentPane().add(canvas);
 	}
 
 	public static void main(String[] args) {

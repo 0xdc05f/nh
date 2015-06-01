@@ -21,7 +21,7 @@ class MyFrame extends JFrame {
 		JPanel p = new JPanel();
 		p.setLayout(null);
 		
-		//이미지삽입
+	//이미지삽입
 		try{
 			img = ImageIO.read(new File("img/Title.png"));
 		}catch(IOException e){
