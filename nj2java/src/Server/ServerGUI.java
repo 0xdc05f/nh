@@ -18,13 +18,13 @@ public class ServerGUI extends JFrame{
 	int gap = 10;
 	public ServerGUI() {
 		
-		setBounds(100,200,600,500); // x좌표, y좌표, 가로, 높이
+		setBounds(100,200,700,500); // x좌표, y좌표, 가로, 높이
 		setLayout(null);
 		setTitle("수업 도우미(교수님화면)");
 		
 		//제목
 		JPanel jp1 = new JPanel();
-		jp1.setBounds(gap, gap, w*2, h);
+		jp1.setBounds(gap, gap, 660, h);
 		jp1.setBorder(new BevelBorder(BevelBorder.RAISED));
 		JLabel lb1 = new JLabel("수업도우미");
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
@@ -33,7 +33,7 @@ public class ServerGUI extends JFrame{
 		
 		//달력이미지
 		JPanel jp2 = new JPanel();
-		jp2.setBounds(gap, gap*2+h,w/3,h);
+		jp2.setBounds(gap, gap*2+h,w/2,h);
 		jp2.setBorder(new EmptyBorder(5,5,5,5));
 		jp2.setLayout(new BorderLayout());
 		String path1 = "img/달력.png";
@@ -55,7 +55,7 @@ public class ServerGUI extends JFrame{
 		
 		//수업시작 이미지
 		JPanel jp4 = new JPanel();
-		jp4.setBounds(gap, gap*3+h*2,w/3,h);
+		jp4.setBounds(gap, gap*3+h*2,w/2,h);
 		jp4.setBorder(new EmptyBorder(5,5,5,5));
 		jp4.setLayout(new BorderLayout());
 		String path2 = "img/start.png";
@@ -66,7 +66,7 @@ public class ServerGUI extends JFrame{
 		
 		//수업시작
 		JPanel jp5 = new JPanel();
-		jp5.setBounds(gap*2+w/2, gap*3+h*2,w/3,h);
+		jp5.setBounds(gap*2+w/2, gap*3+h*2,w/2,h);
 		jp5.setBorder(new EmptyBorder(5,5,5,5));
 		jp5.setLayout(new BorderLayout());
 		JButton btn1 = new JButton("시작");
@@ -86,7 +86,7 @@ public class ServerGUI extends JFrame{
 		
 		//수업종료
 		JPanel jp7 = new JPanel();
-		jp7.setBounds(gap*4+w*3/2, gap*3+h*2,w/3,h);
+		jp7.setBounds(gap*4+w*3/2, gap*3+h*2,w/2,h);
 		jp7.setBorder(new EmptyBorder(5,5,5,5));
 		jp7.setLayout(new BorderLayout());
 		JButton btn2 = new JButton("종료");
