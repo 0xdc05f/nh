@@ -30,14 +30,15 @@ public class ServerGUI extends JFrame{
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
 		jp1.add(lb1,BorderLayout.CENTER);
 		add(jp1);*/
+		
 		JPanel jp1 = new JPanel();
 		jp1.setBounds(gap, gap,660,h);
 		jp1.setBorder(new EmptyBorder(5,5,5,5));
 		jp1.setLayout(new BorderLayout());
 		String path = "img/tt.png";
-		JLabel lb = new JLabel(new ImageIcon(path));
+		JLabel lb1 = new JLabel(new ImageIcon(path));
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
-		jp1.add(lb,JLabel.CENTER);
+		jp1.add(lb1,JLabel.CENTER);
 		add(jp1);
 		
 		
@@ -46,7 +47,7 @@ public class ServerGUI extends JFrame{
 		jp2.setBounds(gap, gap*2+h,w/2,h);
 		jp2.setBorder(new EmptyBorder(5,5,5,5));
 		jp2.setLayout(new BorderLayout());
-		String path1 = "img/달력.png";
+		String path1 = "img/cal.png";
 		JLabel lb2 = new JLabel(new ImageIcon(path1));
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
 		jp2.add(lb2,JLabel.CENTER);		
