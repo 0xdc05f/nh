@@ -4,91 +4,75 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
-class MyFrame extends JFrame {	
-	
-	private JButton b1, b2, b3, b4, b5, b6, b7;
-	BufferedImage img=null;	
-	
-	//버튼
-	public MyFrame(){
-		setTitle("출석관리프로그램(서버)");
+
+public class ServerGUI extends JFrame{
+	int w = 280;
+	int h = 40;
+	int gap = 15;
+	public ServerGUI() {
+		
+		setBounds(100,200,600,500); // x좌표, y좌표, 가로, 높이
+		setLayout(null);
+		setTitle("수업 도우미(교수님화면)");
+		
+		JPanel jp1 = new JPanel();
+		jp1.setBounds(gap, gap, w*2, h);
+		jp1.setBorder(new BevelBorder(BevelBorder.RAISED));
+		JLabel lb1 = new JLabel("수업도우미");
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp1.add(lb1,BorderLayout.CENTER);
+		add(jp1);
+		
+		JPanel jp2 = new JPanel();
+		jp2.setBounds(gap, gap*2+h,w/2,h);
+		jp2.setBorder(new EmptyBorder(5,5,5,5));
+		jp2.setLayout(new BorderLayout());
+		String path1 = "img/number.jpg";
+		JLabel lb2 = new JLabel(new ImageIcon(path1));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp2.add(lb2,JLabel.CENTER);		
+		add(jp2);
+		
+		JPanel jp3 = new JPanel();
+		jp3.setBounds(gap*2+w/2, gap*2+h,w/2,h);
+		jp3.setBorder(new EmptyBorder(5,5,5,5));
+		jp3.setLayout(new BorderLayout());
+		
+		JTextField tf1 = new JTextField(10);
+		jp3.add(tf1,tf1.CENTER);		
+		add(jp3);
+		
+		JPanel jp4 = new JPanel();
+		jp4.setBounds(gap, gap*3+h*2,w/2,h);
+		jp4.setBorder(new EmptyBorder(5,5,5,5));
+		jp4.setLayout(new BorderLayout());
+		String path2 = "img/start.png";
+		JLabel lb3 = new JLabel(new ImageIcon(path1));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp4.add(lb3,JLabel.CENTER);		
+		add(jp4);
+		
+		JPanel jp5 = new JPanel();
+		jp5.setBounds(gap*2+w/2, gap*3+h*2,w/3,h);
+		jp5.setBorder(new EmptyBorder(5,5,5,5));
+		jp5.setLayout(new BorderLayout());
+		JButton btn1 = new JButton("ㅎㅎㅎ");
+		jp5.add(btn1, btn1.CENTER);
+		add(jp5);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JPanel p = new JPanel();
-		p.setLayout(null);
-		
-	//이미지삽입
-		try{
-			img = ImageIO.read(new File("img/Title.png"));
-		}catch(IOException e){
-			System.out.println(e.getMessage());
-			System.exit(0);
-		}
-		add(new MyPanel());
-		setSize(1000,1000);
-		pack();
 		setVisible(true);
 		
-		//날짜선택버튼
-		b1 = new JButton("날짜 선택");
-		p.add(b1);
-		b1.setEnabled(false); //선택 비활성화
-		
-		//수업시작 버튼
-		b2 = new JButton("수업시작");
-		p.add(b2);
-		b2.setEnabled(false); //선택 비활성화
-		b3 = new JButton("Button");
-		p.add(b3);
-		
-		//수업종료 버튼
-		b4 = new JButton("수업종료");
-		p.add(b4);
-		b4.setEnabled(false);
-		b5 = new JButton("Button");
-		p.add(b5);
-		
-		//출석상황 버튼
-		b6 = new JButton("출석상황");
-		p.add(b6);
-		b6.setEnabled(false);
-		b7 = new JButton("Button");
-		p.add(b7);
-		
-		//위치
-		b1.setBounds(30,240,95,30);	//날짜선택
-		b2.setBounds(30, 360, 95, 30);	//수업시작
-		b3.setBounds(150, 360, 95, 30);	//수업시작 버튼
-		b4.setBounds(270, 360, 95, 30);	//수업종료
-		b5.setBounds(390,360,95,30);	//수업종료 버튼
-		b6.setBounds(30, 480, 95, 30);	//출석상황
-		b7.setBounds(150,480,95,30);	//출석상황 버튼
-		
-		add(p);
-		setVisible(true);
 		
 	}
-	class MyPanel extends JPanel{
-		public void paint(Graphics g){
-			g.drawImage(img,0,0,null);
-		}
-		
-		public Dimension getPreferredSize(){
-			if(img==null){
-				return new Dimension(100, 100);
-			}else{
-				return new Dimension(img.getWidth(null), img.getHeight(null));
-			}
-		}
-	}
-}
-
-public class ServerGUI {
 	public static void main(String args[]){
-		MyFrame f = new MyFrame();
+		new ServerGUI();
 	}
 }
