@@ -123,6 +123,26 @@ public class ServerGUI extends JFrame{
 		jp9.add(btn4, btn4.CENTER);
 		add(jp9);
 		
+		//메세지 기능 이미지
+		JPanel jp10 = new JPanel();
+		jp10.setBounds(gap, gap*5+h*4,w/2,h);
+		jp10.setBorder(new EmptyBorder(5,5,5,5));
+		jp10.setLayout(new BorderLayout());
+		String path5 = "img/message.png";
+		JLabel lb6 = new JLabel(new ImageIcon(path5));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp10.add(lb6,JLabel.CENTER);		
+		add(jp10);
+		
+		//메세지
+		JPanel jp11 = new JPanel();
+		jp11.setBounds(gap*2+w/2, gap*5+h*4,w/2,h);
+		jp11.setBorder(new EmptyBorder(5,5,5,5));
+		jp11.setLayout(new BorderLayout());
+		JButton btn5 = new JButton("메세지");
+		jp11.add(btn5, btn5.CENTER);
+		add(jp11);
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
