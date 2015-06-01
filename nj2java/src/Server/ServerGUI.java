@@ -31,13 +31,13 @@ public class ServerGUI extends JFrame{
 		jp1.add(lb1,BorderLayout.CENTER);
 		add(jp1);*/
 		JPanel jp1 = new JPanel();
-		jp1.setBounds(gap, gap*2+h,w/2,h);
+		jp1.setBounds(gap, gap,660,h);
 		jp1.setBorder(new EmptyBorder(5,5,5,5));
 		jp1.setLayout(new BorderLayout());
-		String path = "img/달력.png";
+		String path = "img/tt.png";
 		JLabel lb = new JLabel(new ImageIcon(path));
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
-		jp1.add(lb,JLabel.CENTER);		
+		jp1.add(lb,JLabel.CENTER);
 		add(jp1);
 		
 		
@@ -104,16 +104,16 @@ public class ServerGUI extends JFrame{
 		add(jp7);
 		
 		//출석상황 이미지
-	/*	JPanel jp8 = new JPanel();
+		JPanel jp8 = new JPanel();
 		jp8.setBounds(gap, gap*4+h*3,w/2,h);
 		jp8.setBorder(new EmptyBorder(5,5,5,5));
 		jp8.setLayout(new BorderLayout());
-		String path4 = "img/end.png";
+		String path4 = "img/aa.png";
 		JLabel lb5 = new JLabel(new ImageIcon(path4));
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
-		jp8.add(lb4,JLabel.CENTER);		
+		jp8.add(lb5,JLabel.CENTER);		
 		add(jp8);
-		*/
+		
 		//출석상황
 		JPanel jp9 = new JPanel();
 		jp9.setBounds(gap*2+w/2, gap*4+h*3,w/2,h);
