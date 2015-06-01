@@ -23,13 +23,23 @@ public class ServerGUI extends JFrame{
 		setTitle("수업 도우미(교수님화면)");
 		
 		//제목
-		JPanel jp1 = new JPanel();
+		/*JPanel jp1 = new JPanel();
 		jp1.setBounds(gap, gap, 660, h);
 		jp1.setBorder(new BevelBorder(BevelBorder.RAISED));
 		JLabel lb1 = new JLabel("수업도우미");
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
 		jp1.add(lb1,BorderLayout.CENTER);
+		add(jp1);*/
+		JPanel jp1 = new JPanel();
+		jp1.setBounds(gap, gap*2+h,w/2,h);
+		jp1.setBorder(new EmptyBorder(5,5,5,5));
+		jp1.setLayout(new BorderLayout());
+		String path = "img/달력.png";
+		JLabel lb = new JLabel(new ImageIcon(path));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp1.add(lb,JLabel.CENTER);		
 		add(jp1);
+		
 		
 		//달력이미지
 		JPanel jp2 = new JPanel();
@@ -95,23 +105,23 @@ public class ServerGUI extends JFrame{
 		
 		//출석상황 이미지
 	/*	JPanel jp8 = new JPanel();
-		jp8.setBounds(gap, gap*4+h*3,w/3,h);
+		jp8.setBounds(gap, gap*4+h*3,w/2,h);
 		jp8.setBorder(new EmptyBorder(5,5,5,5));
 		jp8.setLayout(new BorderLayout());
-		String path4 = "img/start.png";
+		String path4 = "img/end.png";
 		JLabel lb5 = new JLabel(new ImageIcon(path4));
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
 		jp8.add(lb4,JLabel.CENTER);		
 		add(jp8);
-		
+		*/
 		//출석상황
 		JPanel jp9 = new JPanel();
-		jp9.setBounds(gap*2+w/2, gap*4+h*3,w/3,h);
+		jp9.setBounds(gap*2+w/2, gap*4+h*3,w/2,h);
 		jp9.setBorder(new EmptyBorder(5,5,5,5));
 		jp9.setLayout(new BorderLayout());
 		JButton btn4 = new JButton("출석 상황");
 		jp9.add(btn4, btn4.CENTER);
-		add(jp9);*/
+		add(jp9);
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
