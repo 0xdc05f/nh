@@ -10,7 +10,6 @@ import javax.swing.border.*;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import java.awt.event.*;
 
 //메인화면
 public class ServerMain extends JFrame{
@@ -82,6 +81,8 @@ public class ServerMain extends JFrame{
 		jp5.setBorder(new EmptyBorder(5,5,5,5));
 		jp5.setLayout(new BorderLayout());
 		JButton btn1 = new JButton("시작");
+		StartAction startaction = new StartAction();	//이벤트
+		btn1.addActionListener(startaction);
 		jp5.add(btn1, btn1.CENTER);
 		add(jp5);
 		
@@ -102,6 +103,8 @@ public class ServerMain extends JFrame{
 		jp7.setBorder(new EmptyBorder(5,5,5,5));
 		jp7.setLayout(new BorderLayout());
 		JButton btn2 = new JButton("종료");
+		EndAction endaction = new EndAction();	//이벤트
+		btn2.addActionListener(endaction);
 		jp7.add(btn2, btn2.CENTER);
 		add(jp7);
 		
@@ -122,8 +125,8 @@ public class ServerMain extends JFrame{
 		jp9.setBorder(new EmptyBorder(5,5,5,5));
 		jp9.setLayout(new BorderLayout());
 		JButton btn4 = new JButton("출석 상황");
-		AttendanceSitAction listener = new AttendanceSitAction();
-		btn4.addActionListener(listener);
+		AttendanceSitAction attendancesitframe = new AttendanceSitAction();	//이벤트
+		btn4.addActionListener(attendancesitframe);	//이벤트
 		jp9.add(btn4, btn4.CENTER);
 		add(jp9);
 		
@@ -144,8 +147,18 @@ public class ServerMain extends JFrame{
 		jp11.setBorder(new EmptyBorder(5,5,5,5));
 		jp11.setLayout(new BorderLayout());
 		JButton btn5 = new JButton("메세지");
+		MessageAction messageframe = new MessageAction();	//이벤트
+		btn5.addActionListener(messageframe);	//이벤트
 		jp11.add(btn5, btn5.CENTER);
 		add(jp11);
+		
+		JPanel jp12 = new JPanel();
+		jp12.setBounds(gap, gap*9+h*5,660,h*4);
+		jp12.setBorder(new EmptyBorder(5,5,5,5));
+		jp12.setLayout(new BorderLayout());
+		JTextField tf2 = new JTextField(10);
+		jp12.add(tf2,tf2.CENTER);		
+		add(jp12);
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
