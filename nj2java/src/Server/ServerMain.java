@@ -11,7 +11,29 @@ import javax.swing.border.*;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import java.awt.event.*;
 
+//출석상황 이벤트
+class AttendanceSitAction extends JFrame implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton b = (JButton)e.getSource();
+		if(e.getSource()==b)
+			new AttendanceSitFrame();	
+	}
+}
+
+//출석상황 화면
+class AttendanceSitFrame extends JFrame{
+	public AttendanceSitFrame(){
+		setBounds(100,200,700,500);
+		setLayout(null);
+		setTitle("출석상황");
+	}
+}
+
+//메인화면
 public class ServerMain extends JFrame{
 	int w = 280;
 	int h = 40;
@@ -121,6 +143,8 @@ public class ServerMain extends JFrame{
 		jp9.setBorder(new EmptyBorder(5,5,5,5));
 		jp9.setLayout(new BorderLayout());
 		JButton btn4 = new JButton("출석 상황");
+		AttendanceSitAction listener = new AttendanceSitAction();
+		btn4.addActionListener(listener);
 		jp9.add(btn4, btn4.CENTER);
 		add(jp9);
 		
@@ -154,3 +178,4 @@ public class ServerMain extends JFrame{
 		new ServerMain();
 	}
 }
+
