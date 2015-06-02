@@ -1,4 +1,4 @@
-package view;
+package Client;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,8 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
-
-import controller.LoginService;
 
 public class LoginFrame extends JFrame implements ActionListener {
  

@@ -1,4 +1,5 @@
 package Server;
+
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -6,100 +7,150 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
 
 public class ServerMain extends JFrame{
-
-
-
-	private JButton button_1;
-	private JTextField textField_2;
-	private JLabel lblAttendanceAdminSystem;
-	private JLabel lblSelectDate;
-	private JLabel lblStart;
-	private JLabel lblNewLabel;
-	private JLabel label;
-	private JLabel lblEnd;
-	private Canvas canvas;
+	int w = 280;
+	int h = 40;
+	int gap = 10;
 	public ServerMain() {
-		getContentPane().setEnabled(false);
-		SpringLayout springLayout = new SpringLayout();
-		getContentPane().setLayout(springLayout);
 		
-		JButton btnStart = new JButton("Start");
-		springLayout.putConstraint(SpringLayout.SOUTH, btnStart, -135, SpringLayout.SOUTH, getContentPane());
-		getContentPane().add(btnStart);
-		
-		JButton btnEnd = new JButton("End");
-		springLayout.putConstraint(SpringLayout.EAST, btnStart, -142, SpringLayout.WEST, btnEnd);
-		springLayout.putConstraint(SpringLayout.NORTH, btnEnd, 103, SpringLayout.NORTH, getContentPane());
-		springLayout.putConstraint(SpringLayout.WEST, btnEnd, 343, SpringLayout.WEST, getContentPane());
-		springLayout.putConstraint(SpringLayout.EAST, btnEnd, -10, SpringLayout.EAST, getContentPane());
-		getContentPane().add(btnEnd);
-		
-		JButton button = new JButton("\uC0C1\uD669");
-		springLayout.putConstraint(SpringLayout.NORTH, button, 16, SpringLayout.SOUTH, btnStart);
-		springLayout.putConstraint(SpringLayout.WEST, button, 0, SpringLayout.WEST, btnStart);
-		springLayout.putConstraint(SpringLayout.EAST, button, -229, SpringLayout.EAST, getContentPane());
-		getContentPane().add(button);
-		
-		button_1 = new JButton("\uBA54\uC138\uC9C0\uD568");
-		springLayout.putConstraint(SpringLayout.NORTH, button_1, 20, SpringLayout.SOUTH, button);
-		springLayout.putConstraint(SpringLayout.EAST, button_1, 0, SpringLayout.EAST, button);
-		getContentPane().add(button_1);
-		
-		textField_2 = new JTextField();
-		springLayout.putConstraint(SpringLayout.WEST, textField_2, 124, SpringLayout.WEST, getContentPane());
-		springLayout.putConstraint(SpringLayout.SOUTH, textField_2, -22, SpringLayout.NORTH, btnStart);
-		springLayout.putConstraint(SpringLayout.EAST, textField_2, -194, SpringLayout.EAST, getContentPane());
-		textField_2.setText("2015 / 04 / 19");
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		setBounds(100,200,700,500); // x좌표, y좌표, 가로, 높이
+		setLayout(null);
+		setTitle("수업 도우미(교수님화면)");
 		
 		//제목
-		lblAttendanceAdminSystem = new JLabel("Attendance Admin System");
-		springLayout.putConstraint(SpringLayout.NORTH, lblAttendanceAdminSystem, 10, SpringLayout.NORTH, getContentPane());
-		springLayout.putConstraint(SpringLayout.EAST, lblAttendanceAdminSystem, -118, SpringLayout.EAST, getContentPane());
-		lblAttendanceAdminSystem.setFont(new Font("굴림", Font.PLAIN, 22));
-		getContentPane().add(lblAttendanceAdminSystem);
+		/*JPanel jp1 = new JPanel();
+		jp1.setBounds(gap, gap, 660, h);
+		jp1.setBorder(new BevelBorder(BevelBorder.RAISED));
+		JLabel lb1 = new JLabel("수업도우미");
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp1.add(lb1,BorderLayout.CENTER);
+		add(jp1);*/
 		
-		lblSelectDate = new JLabel("Select Date");
-		springLayout.putConstraint(SpringLayout.WEST, lblSelectDate, 20, SpringLayout.WEST, getContentPane());
-		springLayout.putConstraint(SpringLayout.EAST, lblSelectDate, -35, SpringLayout.WEST, textField_2);
-		springLayout.putConstraint(SpringLayout.NORTH, lblSelectDate, 3, SpringLayout.NORTH, textField_2);
-		getContentPane().add(lblSelectDate);
+		JPanel jp1 = new JPanel();
+		jp1.setBounds(gap, gap,660,h);
+		jp1.setBorder(new EmptyBorder(5,5,5,5));
+		jp1.setLayout(new BorderLayout());
+		String path = "img/tt.png";
+		JLabel lb1 = new JLabel(new ImageIcon(path));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp1.add(lb1,JLabel.CENTER);
+		add(jp1);
 		
-		lblStart = new JLabel("Start");
-		springLayout.putConstraint(SpringLayout.WEST, btnStart, 49, SpringLayout.EAST, lblStart);
-		springLayout.putConstraint(SpringLayout.NORTH, lblStart, 4, SpringLayout.NORTH, btnStart);
-		springLayout.putConstraint(SpringLayout.WEST, lblStart, 40, SpringLayout.WEST, getContentPane());
-		springLayout.putConstraint(SpringLayout.EAST, lblStart, 75, SpringLayout.WEST, getContentPane());
-		getContentPane().add(lblStart);
 		
-		lblNewLabel = new JLabel("\uC0C1\uD669");
-		springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel, 1, SpringLayout.NORTH, button);
-		springLayout.putConstraint(SpringLayout.WEST, lblNewLabel, 0, SpringLayout.WEST, lblStart);
-		springLayout.putConstraint(SpringLayout.SOUTH, lblNewLabel, 41, SpringLayout.SOUTH, lblStart);
-		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel, 109, SpringLayout.WEST, getContentPane());
-		getContentPane().add(lblNewLabel);
+		//달력이미지
+		JPanel jp2 = new JPanel();
+		jp2.setBounds(gap, gap*2+h,w/2,h);
+		jp2.setBorder(new EmptyBorder(5,5,5,5));
+		jp2.setLayout(new BorderLayout());
+		String path1 = "img/cal.png";
+		JLabel lb2 = new JLabel(new ImageIcon(path1));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp2.add(lb2,JLabel.CENTER);		
+		add(jp2);
 		
-		label = new JLabel("\uBA54\uC138\uC9C0\uD568");
-		springLayout.putConstraint(SpringLayout.NORTH, label, 4, SpringLayout.NORTH, button_1);
-		springLayout.putConstraint(SpringLayout.EAST, label, 0, SpringLayout.EAST, lblStart);
-		getContentPane().add(label);
+		//텍스트창
+		JPanel jp3 = new JPanel();
+		jp3.setBounds(gap*2+w/2, gap*2+h,w/2,h);
+		jp3.setBorder(new EmptyBorder(5,5,5,5));
+		jp3.setLayout(new BorderLayout());
 		
-		lblEnd = new JLabel("End");
-		springLayout.putConstraint(SpringLayout.NORTH, lblEnd, 4, SpringLayout.NORTH, btnStart);
-		springLayout.putConstraint(SpringLayout.EAST, lblEnd, -42, SpringLayout.WEST, btnEnd);
-		getContentPane().add(lblEnd);
+		JTextField tf1 = new JTextField(10);
+		jp3.add(tf1,tf1.CENTER);		
+		add(jp3);
 		
-		canvas = new Canvas();
-		springLayout.putConstraint(SpringLayout.SOUTH, canvas, -10, SpringLayout.SOUTH, getContentPane());
-		springLayout.putConstraint(SpringLayout.EAST, canvas, 0, SpringLayout.EAST, btnEnd);
-		getContentPane().add(canvas);
+		
+		//수업시작 이미지
+		JPanel jp4 = new JPanel();
+		jp4.setBounds(gap, gap*3+h*2,w/2,h);
+		jp4.setBorder(new EmptyBorder(5,5,5,5));
+		jp4.setLayout(new BorderLayout());
+		String path2 = "img/start.png";
+		JLabel lb3 = new JLabel(new ImageIcon(path2));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp4.add(lb3,JLabel.CENTER);		
+		add(jp4);
+		
+		//수업시작
+		JPanel jp5 = new JPanel();
+		jp5.setBounds(gap*2+w/2, gap*3+h*2,w/2,h);
+		jp5.setBorder(new EmptyBorder(5,5,5,5));
+		jp5.setLayout(new BorderLayout());
+		JButton btn1 = new JButton("시작");
+		jp5.add(btn1, btn1.CENTER);
+		add(jp5);
+		
+		//수업종료 이미지
+		JPanel jp6 = new JPanel();
+		jp6.setBounds(gap*3+w, gap*3+h*2,w/2,h);
+		jp6.setBorder(new EmptyBorder(5,5,5,5));
+		jp6.setLayout(new BorderLayout());
+		String path3 = "img/start.png";
+		JLabel lb4 = new JLabel(new ImageIcon(path3));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp6.add(lb4,JLabel.CENTER);		
+		add(jp6);
+		
+		//수업종료
+		JPanel jp7 = new JPanel();
+		jp7.setBounds(gap*4+w*3/2, gap*3+h*2,w/2,h);
+		jp7.setBorder(new EmptyBorder(5,5,5,5));
+		jp7.setLayout(new BorderLayout());
+		JButton btn2 = new JButton("종료");
+		jp7.add(btn2, btn2.CENTER);
+		add(jp7);
+		
+		//출석상황 이미지
+		JPanel jp8 = new JPanel();
+		jp8.setBounds(gap, gap*4+h*3,w/2,h);
+		jp8.setBorder(new EmptyBorder(5,5,5,5));
+		jp8.setLayout(new BorderLayout());
+		String path4 = "img/aa.png";
+		JLabel lb5 = new JLabel(new ImageIcon(path4));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp8.add(lb5,JLabel.CENTER);		
+		add(jp8);
+		
+		//출석상황
+		JPanel jp9 = new JPanel();
+		jp9.setBounds(gap*2+w/2, gap*4+h*3,w/2,h);
+		jp9.setBorder(new EmptyBorder(5,5,5,5));
+		jp9.setLayout(new BorderLayout());
+		JButton btn4 = new JButton("출석 상황");
+		jp9.add(btn4, btn4.CENTER);
+		add(jp9);
+		
+		//메세지 기능 이미지
+		JPanel jp10 = new JPanel();
+		jp10.setBounds(gap, gap*5+h*4,w/2,h);
+		jp10.setBorder(new EmptyBorder(5,5,5,5));
+		jp10.setLayout(new BorderLayout());
+		String path5 = "img/message.png";
+		JLabel lb6 = new JLabel(new ImageIcon(path5));
+		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
+		jp10.add(lb6,JLabel.CENTER);		
+		add(jp10);
+		
+		//메세지
+		JPanel jp11 = new JPanel();
+		jp11.setBounds(gap*2+w/2, gap*5+h*4,w/2,h);
+		jp11.setBorder(new EmptyBorder(5,5,5,5));
+		jp11.setLayout(new BorderLayout());
+		JButton btn5 = new JButton("메세지");
+		jp11.add(btn5, btn5.CENTER);
+		add(jp11);
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
+		
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String args[]){
+		new ServerMain();
 	}
 }
