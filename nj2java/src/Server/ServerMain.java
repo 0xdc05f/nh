@@ -113,7 +113,7 @@ public class ServerMain extends JFrame{
 		jp8.setBounds(gap, gap*4+h*3,w/2,h);
 		jp8.setBorder(new EmptyBorder(5,5,5,5));
 		jp8.setLayout(new BorderLayout());
-		String path4 = "img/aa.png";
+		String path4 = "img/sit.png";
 		JLabel lb5 = new JLabel(new ImageIcon(path4));
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
 		jp8.add(lb5,JLabel.CENTER);		
