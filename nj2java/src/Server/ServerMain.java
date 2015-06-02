@@ -14,13 +14,14 @@ import javax.swing.JButton;
 import java.awt.event.*;
 
 //출석상황 이벤트
-class AttendanceSitAction extends JFrame implements ActionListener{
+class AttendanceSitAction implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton b = (JButton)e.getSource();
-		if(e.getSource()==b)
-			new AttendanceSitFrame();	
+		if(e.getSource()==b){
+			AttendanceSitFrame a = new AttendanceSitFrame();
+		}
 	}
 }
 
@@ -30,6 +31,7 @@ class AttendanceSitFrame extends JFrame{
 		setBounds(100,200,700,500);
 		setLayout(null);
 		setTitle("출석상황");
+		setVisible(true);
 	}
 }
 
