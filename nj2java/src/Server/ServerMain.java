@@ -91,7 +91,7 @@ public class ServerMain extends JFrame{
 		jp6.setBounds(gap*3+w, gap*3+h*2,w/2,h);
 		jp6.setBorder(new EmptyBorder(5,5,5,5));
 		jp6.setLayout(new BorderLayout());
-		String path3 = "img/start.png";
+		String path3 = "img/end.png";
 		JLabel lb4 = new JLabel(new ImageIcon(path3));
 		//lb1.setOpaque(true); 색 입힐수 있게할 것인지
 		jp6.add(lb4,JLabel.CENTER);		
