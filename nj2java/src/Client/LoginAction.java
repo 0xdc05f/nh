@@ -9,6 +9,6 @@ class LoginAction implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JButton a = (JButton)e.getSource();
 		if(e.getSource() == a)
-			new LoginSitFrame();
+			new LoginSender().start();
 	}
 }

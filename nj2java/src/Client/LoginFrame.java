@@ -67,6 +67,7 @@ public class LoginFrame extends JFrame{
 		jp3.add(tf2,tf2.CENTER);		
 		add(jp3);
 		
+		
 		JPanel jp4 = new JPanel();
 		jp4.setBounds(40, 10, 100, 100);
 		jp4.setBorder(new EmptyBorder(5,5,5,5));
@@ -97,6 +98,7 @@ public class LoginFrame extends JFrame{
         passwordField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         layeredPane.add(passwordField);
  
+      //로그인버튼
         bt = new JButton(new ImageIcon("img/btlogin_hud.jpg"));
         bt.setBounds(147, 250, 104, 48);
         LoginAction attendancesitframe = new LoginAction();
@@ -126,5 +128,6 @@ public class LoginFrame extends JFrame{
         add(layeredPane);
         setVisible(true);
     }
+
  
 }
