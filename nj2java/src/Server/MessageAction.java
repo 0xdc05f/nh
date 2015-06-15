@@ -11,7 +11,7 @@ class MessageAction implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JButton b = (JButton)e.getSource();
 		if(e.getSource()==b)
-			new AttendanceSitFrame();	
+			new MessageFrame();	
 	}
 
 }
