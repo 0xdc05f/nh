@@ -23,10 +23,10 @@ import javax.swing.border.EmptyBorder;
 public class LoginFrame extends JFrame{
  
     BufferedImage img = null;
-    JTextField loginTextField;
-    JPasswordField passwordField;
+    static JTextField loginTextField;
+    static JPasswordField passwordField;
     JButton bt, ct, dt;
- 
+    String id, pw;
     public static void main(String[] args){
         new LoginFrame();
     }
@@ -84,12 +84,14 @@ public class LoginFrame extends JFrame{
             System.exit(0);
         }
         
+        
         loginTextField = new JTextField(15);
         loginTextField.setBounds(150, 150, 280, 30);
         layeredPane.add(loginTextField);
         loginTextField.setOpaque(false);
         loginTextField.setForeground(Color.black);
         loginTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+  
         
         passwordField = new JPasswordField(15);
         passwordField.setBounds(150, 200, 280, 30);
@@ -101,8 +103,8 @@ public class LoginFrame extends JFrame{
       //로그인버튼
         bt = new JButton(new ImageIcon("img/btlogin_hud.jpg"));
         bt.setBounds(147, 250, 104, 48);
-        LoginAction attendancesitframe = new LoginAction();
-		bt.addActionListener(attendancesitframe);
+        LoginAction LA = new LoginAction();
+		bt.addActionListener(LA);
         bt.setBorderPainted(false);
         bt.setFocusPainted(false);
         bt.setContentAreaFilled(false);
@@ -128,6 +130,4 @@ public class LoginFrame extends JFrame{
         add(layeredPane);
         setVisible(true);
     }
-
- 
 }
