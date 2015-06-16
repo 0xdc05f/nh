@@ -5,7 +5,7 @@ import java.net.Socket;
 
 import javax.swing.JButton;
 
-class LoginAction implements ActionListener{
+public class LoginAction implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		JButton a = (JButton)e.getSource();

@@ -147,7 +147,7 @@ public class ServerMain extends JFrame{
 		jp11.setBorder(new EmptyBorder(5,5,5,5));
 		jp11.setLayout(new BorderLayout());
 		JButton btn5 = new JButton("메세지");
-		MessageAction messageframe = new MessageAction();	//이벤트
+		MessageFrame messageframe = new MessageFrame();	//이벤트
 		btn5.addActionListener(messageframe);	//이벤트
 		jp11.add(btn5, btn5.CENTER);
 		add(jp11);
