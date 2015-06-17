@@ -4,6 +4,8 @@ import java.io.*;
 public class Dbtest{
 	
 
+	private static PrintStream printWriter;
+
 	public static void main(String args[]) throws Exception{
 		Connection connection = null;
 		Statement statement = null;
@@ -13,14 +15,14 @@ public class Dbtest{
 		}catch(ClassNotFoundException e){
 			System.out.println("org.sqlite.JDBC룰 찾지 못했습니다.");
 		}
-		String adress="C:/Users/L.J.Y/Desktop/SQLiteSpy/nj2db.db";
+		String adress="jdbc:sqlite:nj2db.db";
 		connection = DriverManager.getConnection(adress);
 		statement = connection.createStatement();
 		
-		ResultSet resultSet = statement.executeQuery("SELECT *"+"FROM member");
+		ResultSet resultSet = statement.executeQuery("SELECT *"+"FROM member;");
 	
 		while(resultSet.next()){
-			//printWriter.printf("\"%s\", \"%s\", \"%s\". \"%d\", \"%d\", \"%d\"\n", new Object[]{resultSet.getString("field1"), new Integer(resultSet.getInt("field2"))});
+			printWriter.printf("\"%s\", \"%d\"\n", new Object[]{resultSet.getString("stdid"), new Integer(resultSet.getInt("passwd"))});
 		}
 		resultSet.close();
 		connection.close();
