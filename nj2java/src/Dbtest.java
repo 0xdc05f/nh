@@ -13,8 +13,8 @@ public class Dbtest{
 		}catch(ClassNotFoundException e){
 			System.out.println("org.sqlite.JDBC룰 찾지 못했습니다.");
 		}
-		
-		connection = DriverManager.getConnection("/bin/nj2.db");
+		String adress="C:/Users/L.J.Y/Desktop/SQLiteSpy/nj2db.db";
+		connection = DriverManager.getConnection(adress);
 		statement = connection.createStatement();
 		
 		ResultSet resultSet = statement.executeQuery("SELECT *"+"FROM member");
